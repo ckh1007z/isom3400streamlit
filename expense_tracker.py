@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyploy as plt
+import matplotlib.pyplot as plt
 
 st.title("Personal Expense Tracker")
 if 'expenses' not in st.session_state:
