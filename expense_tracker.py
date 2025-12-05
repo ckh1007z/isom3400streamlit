@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 st.title("Personal Expense Tracker")
 if 'expenses' not in st.session_state:
-  st.session_state.expenses = pd.dataframe(columns=['Date','Category','Amount','Description'])
+  st.session_state.expenses = pd.DataFrame(columns=['Date','Category','Amount','Description'])
 
 with st.form("expense_form"):
     st.subheader("Add New Expense")
@@ -34,8 +34,8 @@ if not st.session_state.expenses.empty:
 
   category_totals = st.session_state.expenses.groupby('Category')["Amount"].sum()
 
-  fig, ax = plt.subbplots(figsize=(10,6))
-  ax.pie(category_totals.value, labels=category_totals.index, autopct='%1.1f%%')
+  fig, ax = plt.subplots(figsize=(10,6))
+  ax.pie(category_totals.values, labels=category_totals.index, autopct='%1.1f%%')
   ax.set_title("Expenses by Category")
   st.pyplot(fig)
 else:
